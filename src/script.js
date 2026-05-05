@@ -22,6 +22,11 @@ const calculate = () => {
   let r = Number(rateElement.value);
   let t = Number(timeElement.value);
 
+  if (isNaN(p) || isNaN(r) || isNaN(t) || p <= 0 || r < 0 || t < 0) {
+    resultElement.innerHTML = `<div style="color: #ff4d4d; justify-content: center;">Please enter valid positive numbers</div>`;
+    return;
+  }
+
   let simpleInterest = calculateSimpleInterest(p, r, t);
   let amount = calculateTotalPayableAmount(p, simpleInterest);
 
